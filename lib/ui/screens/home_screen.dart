@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _checkPermission();
+    _syncOverlayState();
   }
 
   @override
