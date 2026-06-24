@@ -277,7 +277,7 @@ v0.x.x  -> development milestones
 
 ### Phase 1 - Foundation
 - [x] 1.1 - Repo structure (gitignore, README, LICENSE, CONTRIBUTING, templates)
-- [ ] 1.2 - Flutter project init (clean boilerplate, folder structure)
+- [x] 1.2 - Flutter project init (clean boilerplate, folder structure)
 - [ ] 1.3 - Dependencies & config (pubspec.yaml, AndroidManifest)
 - [ ] 1.4 - Data layer (Note model + Hive adapter, NoteRepository)
 - [ ] 1.5 - CI/CD (GitHub Actions ci.yml + release.yml)
@@ -313,9 +313,9 @@ v0.x.x  -> development milestones
 ## Progress
 
 - [x] Planning complete
-- [ ] Phase 1 - Foundation
+- [/] Phase 1 - Foundation
 - [ ] Phase 2 - Core Feature
 - [ ] Phase 3 - Feature Complete
 - [ ] Phase 4 - Polish
 
-**Current**: Phase 1, Iteration 1.2
+**Current**: Phase 1, Iteration 1.3
