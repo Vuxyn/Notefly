@@ -62,6 +62,9 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Future<void> _startOverlay() async {
+    final pixelRatio = MediaQuery.of(context).devicePixelRatio;
+    final int overlaySize = (64 * pixelRatio).round(); // 64dp to fit 56dp bubble + shadow
+
     final alreadyActive =
         await FlutterOverlayWindow.isActive();
     if (alreadyActive) {
@@ -72,8 +75,8 @@ class _HomeScreenState extends State<HomeScreen>
     }
 
     await FlutterOverlayWindow.showOverlay(
-      height: -2,
-      width: -2,
+      height: overlaySize,
+      width: overlaySize,
       enableDrag: true,
       positionGravity: PositionGravity.auto,
       overlayTitle: 'Notefly',

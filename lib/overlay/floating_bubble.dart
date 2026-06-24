@@ -24,32 +24,34 @@ class FloatingBubble extends StatelessWidget {
             'bubble_tapped',
           );
         },
-        child: SizedBox(
-          width: kBubbleSize,
-          height: kBubbleSize,
-          child: Container(
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFF42A5F5),
-                  Color(0xFF1565C0),
+        child: Center(
+          child: SizedBox(
+            width: kBubbleSize,
+            height: kBubbleSize,
+            child: Container(
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFF42A5F5),
+                    Color(0xFF1565C0),
+                  ],
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0x401565C0),
+                    blurRadius: 8,
+                    offset: Offset(0, 4),
+                  ),
                 ],
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0x401565C0),
-                  blurRadius: 8,
-                  offset: Offset(0, 4),
-                ),
-              ],
-            ),
-            child: const Icon(
-              Icons.note_alt_rounded,
-              color: Colors.white,
-              size: 26,
+              child: const Icon(
+                Icons.note_alt_rounded,
+                color: Colors.white,
+                size: 26,
+              ),
             ),
           ),
         ),
