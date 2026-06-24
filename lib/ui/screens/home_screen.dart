@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:notefly/core/theme.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 
 /// Home screen that manages overlay permission and
@@ -62,23 +62,17 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Future<void> _startOverlay() async {
-    final pixelRatio = MediaQuery.of(context).devicePixelRatio;
-    final int overlaySize = (64 * pixelRatio).round(); // 64dp to fit 56dp bubble + shadow
-
-    final alreadyActive =
-        await FlutterOverlayWindow.isActive();
+    final alreadyActive = await FlutterOverlayWindow.isActive();
     if (alreadyActive) {
       await FlutterOverlayWindow.closeOverlay();
-      await Future<void>.delayed(
-        const Duration(milliseconds: 300),
-      );
+      await Future<void>.delayed(const Duration(milliseconds: 300));
     }
 
     await FlutterOverlayWindow.showOverlay(
-      height: overlaySize,
-      width: overlaySize,
+      height: 100,
+      width: 100,
       enableDrag: true,
-      positionGravity: PositionGravity.auto,
+      positionGravity: PositionGravity.none,
       overlayTitle: 'Notefly',
       overlayContent: 'Tap bubble to open notes',
     );
@@ -97,6 +91,15 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('FLOATING SETTINGS', style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: -1)),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        centerTitle: false,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(3.0),
+          child: Container(color: Colors.black, height: 3.0),
+        ),
+      ),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -104,27 +107,28 @@ class _HomeScreenState extends State<HomeScreen>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.note_alt_rounded,
-                  size: 80,
-                  color: Color(0xFF1565C0),
+                Container(
+                  padding: const EdgeInsets.all(24),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    border: Border.all(color: Colors.black, width: 3),
+                    boxShadow: AppTheme.brutalShadow,
+                  ),
+                  child: const Icon(
+                    Icons.note_alt_rounded,
+                    size: 80,
+                    color: Colors.black,
+                  ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 32),
                 Text(
                   'Notefly',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium
-                      ?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xFF1565C0),
-                      ),
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'Quick notes, always on top',
-                  style:
-                      Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 48),
                 if (!_isPermissionGranted)
@@ -140,63 +144,70 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildPermissionCard() {
-    return Card(
-      elevation: 2,
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const Icon(
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.black, width: 3),
+        boxShadow: AppTheme.brutalShadow,
+      ),
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.error,
+              border: Border.all(color: Colors.black, width: 3),
+              boxShadow: AppTheme.brutalShadow,
+            ),
+            child: const Icon(
               Icons.shield_outlined,
               size: 40,
-              color: Color(0xFFFFA726),
+              color: Colors.white,
             ),
-            const SizedBox(height: 12),
-            const Text(
-              'Overlay permission required',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+          ),
+          const SizedBox(height: 24),
+          const Text(
+            'PERMISSION REQUIRED',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 1.5,
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Notefly needs permission to display '
-              'the floating bubble on top of '
-              'other apps.',
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            FilledButton.icon(
-              onPressed: _requestPermission,
-              icon: const Icon(Icons.settings),
-              label: const Text('Grant Permission'),
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 12),
+          const Text(
+            'Notefly needs permission to display the floating bubble on top of other apps.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 24),
+          FilledButton.icon(
+            onPressed: _requestPermission,
+            icon: const Icon(Icons.settings),
+            label: const Text('GRANT PERMISSION'),
+          ),
+        ],
       ),
     );
   }
 
   Widget _buildOverlayToggle() {
     return FilledButton.icon(
-      onPressed:
-          _isOverlayActive ? _stopOverlay : _startOverlay,
+      onPressed: _isOverlayActive ? _stopOverlay : _startOverlay,
       icon: Icon(
-        _isOverlayActive
-            ? Icons.stop_rounded
-            : Icons.play_arrow_rounded,
+        _isOverlayActive ? Icons.stop_rounded : Icons.play_arrow_rounded,
       ),
       label: Text(
-        _isOverlayActive
-            ? 'Stop Bubble'
-            : 'Start Bubble',
+        _isOverlayActive ? 'STOP BUBBLE' : 'START BUBBLE',
       ),
       style: FilledButton.styleFrom(
-        minimumSize: const Size(200, 48),
+        minimumSize: const Size(double.infinity, 64),
         backgroundColor: _isOverlayActive
-            ? const Color(0xFFE53935)
-            : const Color(0xFF1565C0),
+            ? Theme.of(context).colorScheme.error
+            : Theme.of(context).colorScheme.primary,
+        foregroundColor: _isOverlayActive ? Colors.white : Colors.black,
       ),
     );
   }
