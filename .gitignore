@@ -1,0 +1,48 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate.log
+
+# IntelliJ Related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code Related
+.vscode/
+
+# Flutter/Dart Related
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Generated files (Hive adapters and others)
+*.g.dart
+hive_adapters/
+
+# Android Related
+.gradle/
+local.properties
+**/AndroidManifest.xml.user
+**/assets/cfg/
+**/obj/
+**/bin/
+**/libs/
+**/gen/
+**/out/
+**/build/
+*.apk
+*.ap_
+*.dex
