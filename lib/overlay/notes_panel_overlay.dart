@@ -30,9 +30,11 @@ class _NotesPanelOverlayState extends State<NotesPanelOverlay> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.black.withValues(alpha: 0.5), // Semi-transparent overlay background
-      child: SafeArea(
+    return Scaffold(
+      backgroundColor: Colors.black.withValues(alpha: 0.5), // Semi-transparent overlay background
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(
+        bottom: false, // Prevent gap at the bottom of the screen
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

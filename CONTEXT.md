@@ -286,8 +286,8 @@ v0.x.x  -> development milestones
 
 ### Phase 2 - Core Feature
 - [x] 2.1 - Floating bubble (overlay, draggable, permission request)
-- [ ] 2.2 - Notes panel UI (list, checkbox, add note input)
-- [ ] 2.3 - Wire state (NoteProvider + NoteRepository connected to UI)
+- [x] 2.2 - Notes panel UI (list, checkbox, add note input)
+- [x] 2.3 - Wire state (NoteProvider + NoteRepository connected to UI)
 
 **Exit criteria**: APK installable, bubble appears, notes can be added and checked
 
@@ -318,4 +318,4 @@ v0.x.x  -> development milestones
 - [ ] Phase 3 - Feature Complete
 - [ ] Phase 4 - Polish
 
-**Current**: Phase 2, Iteration 2.2
+**Current**: Phase 3, Iteration 3.1
