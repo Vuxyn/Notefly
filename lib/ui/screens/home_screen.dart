@@ -72,8 +72,8 @@ class _HomeScreenState extends State<HomeScreen>
     }
 
     await FlutterOverlayWindow.showOverlay(
-      height: 70,
-      width: 70,
+      height: -2,
+      width: -2,
       enableDrag: true,
       positionGravity: PositionGravity.auto,
       overlayTitle: 'Notefly',
