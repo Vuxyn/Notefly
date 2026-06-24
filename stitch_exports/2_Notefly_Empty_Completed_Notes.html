@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notefly - Done Empty State</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#121c2a",
+                        "tertiary-fixed": "#89f5e7",
+                        "background": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#5c5f60",
+                        "secondary-fixed-dim": "#c5c6c8",
+                        "surface-dim": "#d0dbed",
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-secondary-container": "#606365",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline": "#6b7a76",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed-variant": "#444749",
+                        "surface-container-low": "#eff4ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#006b5f",
+                        "on-primary-fixed": "#00201c",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary-fixed-variant": "#005047",
+                        "surface-container-high": "#dee9fc",
+                        "outline-variant": "#bacac5",
+                        "on-tertiary-container": "#00574f",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#dee0e2",
+                        "primary-fixed-dim": "#3cddc7",
+                        "tertiary-container": "#62d0c2",
+                        "primary-fixed": "#62fae3",
+                        "on-error-container": "#93000a",
+                        "primary": "#006b5f",
+                        "surface-container-highest": "#d9e3f6",
+                        "inverse-primary": "#3cddc7",
+                        "error": "#ba1a1a",
+                        "tertiary": "#006a61",
+                        "surface-container": "#e6eeff",
+                        "primary-container": "#2dd4bf",
+                        "on-primary-container": "#00574d",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "on-tertiary-fixed": "#00201d",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "secondary-fixed": "#e1e2e4",
+                        "on-background": "#121c2a",
+                        "on-surface-variant": "#3c4a46",
+                        "inverse-surface": "#27313f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "lg": "24px",
+                        "margin-mobile": "20px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "md": "16px",
+                        "gutter-mobile": "12px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-hidden antialiased">
+<!-- Top App Bar -->
+<header class="bg-surface rounded-t-xl flex items-center justify-between px-md py-sm w-full shrink-0 relative z-10">
+<button aria-label="Close" class="p-2 -ml-2 rounded-full text-on-surface-variant hover:bg-surface-variant/50 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-semibold text-primary absolute left-1/2 -translate-x-1/2">Notefly</h1>
+<button aria-label="More options" class="p-2 -mr-2 rounded-full text-on-surface-variant hover:bg-surface-variant/50 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col bg-surface-container-lowest relative overflow-hidden mt-2 mx-2 sm:mx-auto sm:max-w-md sm:w-full rounded-t-xl sm:rounded-xl shadow-[0_-4px_24px_rgba(45,212,191,0.05)] border-t border-x sm:border-b border-surface-variant z-0">
+<!-- Filter Tabs (Not BottomNavBar, but in-page view toggle based on prompt "three tabs with 'Done' underlined") -->
+<div class="flex items-center justify-around px-margin-mobile pt-lg pb-sm border-b border-surface-variant shrink-0 relative z-10">
+<button class="font-label-md text-label-md text-on-surface-variant px-4 py-2 hover:bg-surface-variant/50 rounded-lg transition-colors">All</button>
+<button class="font-label-md text-label-md text-on-surface-variant px-4 py-2 hover:bg-surface-variant/50 rounded-lg transition-colors">Active</button>
+<div class="relative flex flex-col items-center">
+<button class="font-label-md text-label-md text-primary font-semibold px-4 py-2">Done</button>
+<div class="absolute bottom-0 w-8 h-1 bg-primary-container rounded-t-full"></div>
+</div>
+</div>
+<!-- Empty State Content -->
+<div class="flex-1 flex flex-col items-center justify-center p-xl relative z-0">
+<div class="w-48 h-48 mb-lg relative">
+<img alt="Minimalist 3D illustration of a clean checklist with a soft green checkmark" class="w-full h-full object-contain mix-blend-multiply drop-shadow-[0_12px_24px_rgba(45,212,191,0.15)] animate-[float_4s_ease-in-out_infinite]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwY7B7ZK_0Gv6DlaAkXKVeclfNnVNNYZDwGivLEo6pGFNbMNMEphDRwHIfIF-QbyvSCz7mpBZFLUB9By3Samzn4XQlhvHl_DT94A-eUxnO295DgthI41lS-jvpZnYXfQldGk0Aoc-k6ShAOHuDiffpanoFbcaseGHTYa9okcInPokFBuivBEwsMzb0_j9oBqxBKLgpVtW9lfmp1nEz7EmhMToNc3WL2dOVioVTKP1UPCU5i75ChWzuJ7Y0YNuH55mmH572ysXtrsgM"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm text-center">No completed notes yet</h2>
+<p class="font-body-md text-body-md text-on-surface-variant text-center max-w-[280px]">Check off a note to see it here.</p>
+</div>
+<!-- Floating Action Button (Suppressed as per JSON instructions for non-home screens, but wait, the prompt asks for bottom 'Add a note...' input field instead of FAB) -->
+<!-- Bottom Input Field -->
+<div class="p-margin-mobile bg-surface-container-lowest shrink-0 border-t border-surface-variant relative z-10">
+<div class="flex items-center bg-surface-container-low rounded-xl px-md py-sm focus-within:ring-2 focus-within:ring-primary-container focus-within:bg-surface-container-lowest transition-all shadow-[inset_0_-2px_0_rgba(45,212,191,0.2)] focus-within:shadow-[inset_0_-2px_0_rgba(45,212,191,1)]">
+<span class="material-symbols-outlined text-on-surface-variant mr-sm" data-icon="add">add</span>
+<input aria-label="Add a note" class="flex-1 bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface placeholder-on-surface-variant/60 p-0" placeholder="Add a note..." type="text"/>
+<button aria-label="Microphone" class="ml-sm p-1 rounded-full text-primary hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Responsive Mobile Anchor) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container-low border-t border-outline-variant md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-secondary-container rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="list_alt">list_alt</span>
+<span class="font-label-sm text-label-sm">All</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-secondary-container rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="sticky_note_2">sticky_note_2</span>
+<span class="font-label-sm text-label-sm">Active</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 scale-98 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm font-semibold">Done</span>
+</a>
+</nav>
+<!-- Spacer for mobile nav -->
+<div class="h-16 md:hidden shrink-0"></div>
+<style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</body></html>

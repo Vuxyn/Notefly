@@ -46,3 +46,7 @@ local.properties
 *.apk
 *.ap_
 *.dex
+
+# Custom Configs / Credentials
+mcp.json
+.env

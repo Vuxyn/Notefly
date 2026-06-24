@@ -1,0 +1,195 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Clarify - Onboarding Permission</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#006b5f",
+                    "inverse-surface": "#27313f",
+                    "on-tertiary-container": "#00574f",
+                    "on-background": "#121c2a",
+                    "on-primary-fixed": "#00201c",
+                    "tertiary-fixed-dim": "#6bd8cb",
+                    "primary-fixed": "#62fae3",
+                    "surface-bright": "#f8f9ff",
+                    "primary-fixed-dim": "#3cddc7",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#3cddc7",
+                    "on-primary-container": "#00574d",
+                    "surface-container-low": "#eff4ff",
+                    "surface": "#f8f9ff",
+                    "background": "#f8f9ff",
+                    "on-tertiary-fixed-variant": "#005049",
+                    "on-secondary-container": "#606365",
+                    "outline-variant": "#bacac5",
+                    "on-tertiary-fixed": "#00201d",
+                    "primary-container": "#2dd4bf",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#e6eeff",
+                    "secondary": "#5c5f60",
+                    "primary": "#006b5f",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#dee0e2",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#e1e2e4",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-surface": "#121c2a",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#c5c6c8",
+                    "surface-container-high": "#dee9fc",
+                    "on-secondary-fixed": "#191c1e",
+                    "outline": "#6b7a76",
+                    "tertiary-container": "#62d0c2",
+                    "surface-variant": "#d9e3f6",
+                    "surface-dim": "#d0dbed",
+                    "on-primary-fixed-variant": "#005047",
+                    "on-secondary-fixed-variant": "#444749",
+                    "tertiary-fixed": "#89f5e7",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#d9e3f6",
+                    "tertiary": "#006a61",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#3c4a46"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "base": "4px",
+                    "gutter-mobile": "12px",
+                    "xs": "4px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "display": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9ff;
+            overflow-x: hidden;
+        }
+        .ripple-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Pagination Dot Animation */
+        .dot-active {
+            width: 24px;
+            background-color: #2dd4bf;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Smooth Entrance */
+        .fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col items-center justify-between">
+<!-- Top AppBar (Injected Logic) -->
+<!-- According to Shell Visibility: "suppress if page intent is Onboarding" -->
+<!-- However, JSON provides a TopAppBar with 'close' leading icon. We will use a simplified header for the close action -->
+<header class="w-full top-0 left-0 flex items-center justify-between px-margin-mobile h-16 bg-transparent">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-headline-md">close</span>
+</button>
+<span class="font-display font-bold text-headline-md-mobile text-primary">Clarify</span>
+<div class="w-8"></div> <!-- Spacer for balance -->
+</header>
+<main class="flex-1 flex flex-col items-center justify-center w-full max-w-md px-margin-mobile fade-up">
+<!-- Large Top Illustration -->
+<div class="relative w-full aspect-square flex items-center justify-center mb-xl">
+<!-- Atmospheric glow behind the illustration -->
+<div class="absolute inset-0 bg-primary-container/10 blur-[80px] rounded-full scale-75"></div>
+<img alt="Permission Illustration" class="relative z-10 w-full h-full object-contain max-h-[340px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV_-XAcpynUepw-RjDr01B2zA-8ZcxgQdZsL7OFS9IKUDwI4ZDGPZPEsiSFeri6Obsjw8vQ9K-D4EI7QgSmOjnDZmm09ir5_1toFleCA1jBXPFcFFu0no2RgHATHfmbo4iDOQMXPAC_RXziGqwmQb3Kg7klb819Re3fyzW5mLvhnlnwUapaOBo81jAn5RTCcNkFS9I_Xs5iR17ZpmWZvARDGFis53yJaLPtBxiCRNrUshtodTADvmGxyLTOM1_AebYFUNo7TCdUI9V">
+</div>
+<!-- Typography Section -->
+<div class="text-center space-y-md mb-xl">
+<h1 class="font-display font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
+                One permission needed
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto">
+                Notefly needs overlay permission to float above other apps. We promise that's all.
+            </p>
+</div>
+</main>
+<!-- Bottom Action Section -->
+<footer class="w-full max-w-md px-margin-mobile pb-xl flex flex-col items-center gap-xl fade-up" style="animation-delay: 0.2s;">
+<!-- Pagination Dots -->
+<div class="flex items-center gap-xs">
+<div class="h-2 w-2 rounded-full bg-secondary-container"></div>
+<div class="h-2 w-2 rounded-full bg-secondary-container"></div>
+<div class="h-2 w-6 rounded-full bg-primary-container shadow-sm transition-all duration-300"></div>
+</div>
+<!-- Primary Button -->
+<button class="w-full h-14 bg-primary text-on-primary font-label-md text-label-md rounded-xl flex items-center justify-center gap-sm shadow-lg hover:opacity-90 active:scale-95 transition-all ripple-effect shadow-[#1e40af]/20" style="background-color: rgb(30, 64, 175);">
+            Grant Permission &amp; Get Started
+            <span class="material-symbols-outlined" style="font-variation-settings: 'wght' 600;">arrow_forward</span>
+</button>
+</footer>
+<!-- BottomNavBar (Suppressed for Onboarding as per "Semantic Shell" mandate) -->
+<!-- Micro-interactions Script -->
+<script>
+        // Simple press feedback logic
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.97)';
+            });
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'scale(1)';
+            });
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+
+
+</body></html>

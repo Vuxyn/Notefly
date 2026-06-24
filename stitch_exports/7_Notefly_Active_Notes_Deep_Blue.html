@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Notefly - Cognitive Lightness</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#ba1a1a",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#3755c3",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#505f76",
+                    "secondary-container": "#d0e1fb",
+                    "on-primary-fixed": "#001453",
+                    "on-tertiary-fixed": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#757684",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary-fixed-variant": "#173bab",
+                    "on-primary-container": "#a8b8ff",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "inverse-surface": "#2d3133",
+                    "surface": "#f7f9fb",
+                    "on-tertiary-container": "#b4bbd5",
+                    "inverse-on-surface": "#eff1f3",
+                    "outline-variant": "#c4c5d5",
+                    "surface-container-low": "#f2f4f6",
+                    "primary": "#1e40af",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-container": "#eceef0",
+                    "surface-dim": "#d8dadc",
+                    "primary-fixed": "#dde1ff",
+                    "tertiary-container": "#434b60",
+                    "on-secondary-fixed": "#0b1c30",
+                    "primary-container": "#1e40af",
+                    "primary-fixed-dim": "#b8c4ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-background": "#191c1e",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "inverse-primary": "#b8c4ff",
+                    "tertiary-fixed": "#dae2fd",
+                    "on-surface-variant": "#444653",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-container": "#54647a",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "tertiary-fixed-dim": "#bec6e0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "inline-gap": "12px",
+                    "stack-gap": "16px",
+                    "section-padding": "24px",
+                    "container-margin": "20px",
+                    "touch-target": "48px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+        .bottom-sheet {
+            transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .dim-overlay {
+            background-color: rgba(0, 0, 0, 0.4);
+            transition: opacity 0.4s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+        .note-item {
+            transition: all 0.2s ease;
+        }
+        .note-item:active {
+            background-color: #f2f4f6;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen overflow-hidden">
+<!-- Background Content (Dimmed) -->
+<main class="relative w-full h-screen">
+<!-- TopAppBar Placeholder behind overlay -->
+<header class="bg-surface dark:bg-surface text-primary font-headline-md text-headline-md w-full top-0 sticky flex items-center justify-between px-container-margin py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Notefly</h1>
+</div>
+<span class="material-symbols-outlined cursor-pointer">notifications</span>
+</header>
+<!-- Main Content Canvas (Background) -->
+<div class="px-container-margin py-stack-gap space-y-6">
+<div class="rounded-xl bg-surface-container-low p-6 space-y-4">
+<div class="h-4 w-2/3 bg-surface-variant rounded-full opacity-30"></div>
+<div class="h-3 w-full bg-surface-variant rounded-full opacity-20"></div>
+<div class="h-3 w-5/6 bg-surface-variant rounded-full opacity-20"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 bg-surface-container rounded-xl opacity-30"></div>
+<div class="h-32 bg-surface-container rounded-xl opacity-30"></div>
+</div>
+</div>
+<!-- Dim Overlay -->
+<div class="dim-overlay absolute inset-0 z-10"></div>
+</main>
+<!-- Bottom Sheet (Active State) -->
+<div class="bottom-sheet fixed bottom-0 left-0 right-0 h-[70%] bg-surface-container-lowest z-30 rounded-t-[24px] shadow-[0_-4px_25px_rgba(0,0,0,0.1)] flex flex-col">
+<!-- Handle Indicator -->
+<div class="w-full flex justify-center py-3">
+<div class="w-10 h-1 bg-outline-variant rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-container-margin flex items-center justify-between pb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Notefly</h2>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-secondary">close</span>
+</button>
+</div>
+<!-- Tabs -->
+<div class="px-container-margin flex gap-6 border-b border-surface-variant/50">
+<button class="pb-2 font-label-caps text-label-caps text-primary border-b-2 border-primary transition-all">
+                ALL
+            </button>
+<button class="pb-2 font-label-caps text-label-caps text-secondary hover:text-on-surface transition-all">
+                ACTIVE
+            </button>
+<button class="pb-2 font-label-caps text-label-caps text-secondary hover:text-on-surface transition-all">
+                DONE
+            </button>
+</div>
+<!-- List Section (Scrollable) -->
+<div class="flex-grow overflow-y-auto custom-scrollbar px-container-margin py-4 space-y-2">
+<!-- Item 1: Unchecked -->
+<div class="note-item flex items-center gap-4 py-3 rounded-lg">
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px] opacity-0">check</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface">Buy groceries for dinner</p>
+</div>
+<!-- Item 2: Checked -->
+<div class="note-item flex items-center gap-4 py-3 rounded-lg">
+<div class="w-6 h-6 rounded-md bg-primary flex items-center justify-center cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[18px] text-white" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<p class="font-body-lg text-body-lg text-secondary line-through italic">Finish project proposal</p>
+</div>
+<!-- Item 3: Unchecked -->
+<div class="note-item flex items-center gap-4 py-3 rounded-lg">
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px] opacity-0">check</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface">Call mom at 5 PM</p>
+</div>
+</div>
+<!-- Sticky Input Bar -->
+<div class="p-container-margin bg-surface-container-lowest border-t border-surface-variant/30">
+<div class="flex items-center gap-3 bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant focus-within:border-primary transition-all">
+<input class="flex-grow bg-transparent border-none focus:ring-0 text-body-lg font-body-lg placeholder:text-secondary" placeholder="Add a note..." type="text"/>
+<button class="text-primary hover:scale-110 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Floating Bubble (FAB Contextual) -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="relative w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.18)] transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="description">description</span>
+<!-- Red Badge -->
+<div class="absolute -top-1 -right-1 w-5 h-5 bg-error rounded-full flex items-center justify-center shadow-sm">
+<span class="text-[10px] font-bold text-white leading-none">3</span>
+</div>
+</button>
+</div>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center h-touch-target px-container-margin pb-safe bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_15px_rgba(0,0,0,0.06)] z-20">
+<div class="flex flex-col items-center justify-center text-primary relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined">label</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined">archive</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined">settings</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for checkboxes
+        document.querySelectorAll('.note-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const checkbox = item.querySelector('.material-symbols-outlined');
+                const text = item.querySelector('p');
+                const box = checkbox.parentElement;
+
+                if (box.classList.contains('bg-primary')) {
+                    // Uncheck
+                    box.classList.remove('bg-primary');
+                    box.classList.add('border-2', 'border-outline-variant');
+                    checkbox.classList.add('opacity-0');
+                    checkbox.style.fontVariationSettings = "'FILL' 0";
+                    text.classList.remove('line-through', 'italic', 'text-secondary');
+                    text.classList.add('text-on-surface');
+                } else {
+                    // Check
+                    box.classList.add('bg-primary');
+                    box.classList.remove('border-2', 'border-outline-variant');
+                    checkbox.classList.remove('opacity-0');
+                    checkbox.style.fontVariationSettings = "'FILL' 1";
+                    checkbox.classList.add('text-white');
+                    text.classList.add('line-through', 'italic', 'text-secondary');
+                    text.classList.remove('text-on-surface');
+                }
+            });
+        });
+
+        // Close logic simulation
+        document.querySelector('.bottom-sheet button').addEventListener('click', () => {
+            document.querySelector('.bottom-sheet').style.transform = 'translateY(100%)';
+            document.querySelector('.dim-overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('.dim-overlay').style.display = 'none';
+            }, 400);
+        });
+    </script>
+</body></html>
