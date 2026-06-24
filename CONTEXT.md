@@ -285,7 +285,7 @@ v0.x.x  -> development milestones
 **Exit criteria**: project runs with `flutter run`, data model ready
 
 ### Phase 2 - Core Feature
-- [ ] 2.1 - Floating bubble (overlay, draggable, permission request)
+- [x] 2.1 - Floating bubble (overlay, draggable, permission request)
 - [ ] 2.2 - Notes panel UI (list, checkbox, add note input)
 - [ ] 2.3 - Wire state (NoteProvider + NoteRepository connected to UI)
 
@@ -318,4 +318,4 @@ v0.x.x  -> development milestones
 - [ ] Phase 3 - Feature Complete
 - [ ] Phase 4 - Polish
 
-**Current**: Phase 2, Iteration 2.1
+**Current**: Phase 2, Iteration 2.2
