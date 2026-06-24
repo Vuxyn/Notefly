@@ -30,10 +30,21 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  void didChangeAppLifecycleState(
+    AppLifecycleState state,
+  ) {
     if (state == AppLifecycleState.resumed) {
       _checkPermission();
+      _syncOverlayState();
     }
+  }
+
+  Future<void> _syncOverlayState() async {
+    final active =
+        await FlutterOverlayWindow.isActive();
+    setState(() {
+      _isOverlayActive = active;
+    });
   }
 
   Future<void> _checkPermission() async {
@@ -50,9 +61,18 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Future<void> _startOverlay() async {
+    final alreadyActive =
+        await FlutterOverlayWindow.isActive();
+    if (alreadyActive) {
+      await FlutterOverlayWindow.closeOverlay();
+      await Future<void>.delayed(
+        const Duration(milliseconds: 300),
+      );
+    }
+
     await FlutterOverlayWindow.showOverlay(
-      height: 200,
-      width: 200,
+      height: 70,
+      width: 70,
       enableDrag: true,
       positionGravity: PositionGravity.auto,
       overlayTitle: 'Notefly',
