@@ -280,7 +280,7 @@ v0.x.x  -> development milestones
 - [x] 1.2 - Flutter project init (clean boilerplate, folder structure)
 - [x] 1.3 - Dependencies & config (pubspec.yaml, AndroidManifest)
 - [x] 1.4 - Data layer (Note model + Hive adapter, NoteRepository)
-- [ ] 1.5 - CI/CD (GitHub Actions ci.yml + release.yml)
+- [x] 1.5 - CI/CD (GitHub Actions ci.yml + release.yml)
 
 **Exit criteria**: project runs with `flutter run`, data model ready
 
@@ -313,9 +313,9 @@ v0.x.x  -> development milestones
 ## Progress
 
 - [x] Planning complete
-- [/] Phase 1 - Foundation
-- [ ] Phase 2 - Core Feature
+- [x] Phase 1 - Foundation
+- [/] Phase 2 - Core Feature
 - [ ] Phase 3 - Feature Complete
 - [ ] Phase 4 - Polish
 
-**Current**: Phase 1, Iteration 1.5
+**Current**: Phase 2, Iteration 2.1
